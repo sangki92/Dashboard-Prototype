@@ -152,7 +152,8 @@ function metricCard(def, size) {
   const chartWrap = document.createElement('div');
   chartWrap.className = 'chart-wrap';
   const cw = size === 'composite' ? 130 : 104, ch = size === 'composite' ? 42 : 30;
-  chartWrap.appendChild(sparkline(def.series, ACCENT, cw, ch));
+  const sectionColor = size === 'composite' ? '#A8526B' : size === 'leading' ? '#2C7A8C' : '#A6791F';
+  chartWrap.appendChild(sparkline(def.series, sectionColor, cw, ch));
   card.appendChild(chartWrap);
 
   const noteEl = document.createElement('span');

@@ -8,6 +8,13 @@
   --faint: #A79F98;
   --border: #ECE8E4;
   --bg: #FBF9F7;
+
+  --composite-accent: #A8526B;
+  --composite-tint: #FAF1F3;
+  --leading-accent: #2C7A8C;
+  --leading-tint: #EFF6F7;
+  --lagging-accent: #A6791F;
+  --lagging-tint: #FAF5EA;
 }
 
 * { box-sizing: border-box; }
@@ -47,13 +54,42 @@ body {
 .topbar-right { margin-left: auto; }
 .data-note { font-size: 11.5px; color: var(--muted); background: #F1EDE9; padding: 5px 12px; border-radius: 8px; }
 
-.page { background: var(--bg); padding: 30px 32px 56px; min-height: 100vh; }
+.page { background: var(--bg); padding: 30px 32px 64px; min-height: 100vh; }
 .page > .block, .page > .page-footer { max-width: 1180px; margin: 0 auto; }
-.block { display: flex; flex-direction: column; margin-bottom: 42px; }
 
-.block-head { display: flex; align-items: baseline; gap: 13px; margin-bottom: 18px; flex-wrap: wrap; }
-.block-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
-.block-title { font-size: 16px; font-weight: 600; color: var(--ink); }
+.block {
+  display: flex; flex-direction: column;
+  margin-bottom: 30px;
+  padding: 24px 26px 28px;
+  border-radius: 22px;
+  border: 1px solid transparent;
+  position: relative;
+}
+.block + .block { margin-top: 4px; }
+
+.block-composite { background: var(--composite-tint); border-color: #F0DDE2; }
+.block-leading { background: var(--leading-tint); border-color: #DCEAEC; }
+.block-lagging { background: var(--lagging-tint); border-color: #EDE2C9; }
+
+.block-composite .grid, .block-leading .grid, .block-lagging .grid { position: relative; }
+
+.block-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.block-num {
+  font-size: 11px; font-weight: 800; color: #fff;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.block-composite .block-num { background: var(--composite-accent); }
+.block-leading .block-num { background: var(--leading-accent); }
+.block-lagging .block-num { background: var(--lagging-accent); }
+
+.block-tag { font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; }
+.block-composite .block-tag { color: var(--composite-accent); background: rgba(168,82,107,0.12); }
+.block-leading .block-tag { color: var(--leading-accent); background: rgba(44,122,140,0.12); }
+.block-lagging .block-tag { color: var(--lagging-accent); background: rgba(166,121,31,0.12); }
+
+.block-title { font-size: 16px; font-weight: 700; color: var(--ink); }
 .block-desc { margin-left: auto; font-size: 12px; color: var(--muted); }
 
 .grid { display: grid; gap: 18px; }
