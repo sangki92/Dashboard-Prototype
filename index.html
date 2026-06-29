@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMIÈRE · 경영 대시보드</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">L</div>
+      <div class="brand-text">
+        <span class="brand-name">LUMIÈRE</span>
+        <span class="brand-sub">경영 대시보드 · 프로토타입</span>
+      </div>
+    </div>
+    <div class="period" id="periodInfo">
+      <span class="period-main">2026년 1월 – 6월</span>
+      <span class="period-sub">월간 리포트</span>
+    </div>
+    <div class="topbar-right">
+      <span class="data-note">샘플 데이터 기반 · DB 연동 전 단계</span>
+    </div>
+  </header>
+
+  <main id="app">
+    <div class="page">
+
+      <section class="block">
+        <div class="block-head">
+          <span class="block-tag" id="tagComposite">NORTH STAR</span>
+          <span class="block-title">복합지표 · 사업 건강도</span>
+          <span class="block-desc">단일지표를 융합한 핵심 KPI 4종 · 카드를 클릭하면 세부 데이터를 볼 수 있어요</span>
+        </div>
+        <div class="grid grid-4" id="compositeGrid"></div>
+      </section>
+
+      <section class="block">
+        <div class="block-head">
+          <span class="block-tag">LEADING</span>
+          <span class="block-title">선행지표 · 실시간 모니터링</span>
+          <span class="block-desc">매일·매주 변동 → 빠른 대응이 필요한 신호</span>
+        </div>
+        <div class="grid grid-leading" id="leadingGrid"></div>
+      </section>
+
+      <section class="block">
+        <div class="block-head">
+          <span class="block-tag">LAGGING</span>
+          <span class="block-title">후행지표 · 월간 성과</span>
+          <span class="block-desc">이미 일어난 결과 · 사업 성적표</span>
+        </div>
+
+        <div class="grid grid-12" style="margin-bottom:16px">
+          <div class="card span-8 gmv-card" id="gmvCard">
+            <div class="gmv-head">
+              <div>
+                <div class="card-label">매출 / GMV · 최근 6개월</div>
+                <div class="gmv-value-row">
+                  <span class="gmv-value" id="gmvValue">-</span>
+                  <span class="delta" id="gmvDelta">-</span>
+                </div>
+              </div>
+              <span class="source-note">자사몰·스마트스토어·올리브영 주문 DB<br>+ PG사 결제 데이터</span>
+            </div>
+            <div id="gmvChart"></div>
+            <div class="month-labels" id="gmvMonths"></div>
+          </div>
+          <div class="card span-4" id="channelCard">
+            <div class="card-label" style="margin-bottom:16px">채널별 매출 비중 (누적)</div>
+            <div class="donut-row">
+              <div class="donut-wrap" id="donutWrap"></div>
+              <div class="legend" id="channelLegend"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-5" id="laggingGrid"></div>
+      </section>
+
+      <footer class="page-footer">
+        뷰티브랜드 대시보드 프로토타입 · 거래원장 340건 · 6개월(2026.01–06) 샘플 데이터 기준 · 실제 서비스에서는 DB가 실시간 연동됩니다
+      </footer>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="metrics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
