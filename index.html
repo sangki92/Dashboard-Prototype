@@ -39,6 +39,49 @@
         <div class="grid grid-4" id="compositeGrid"></div>
       </section>
 
+      <!-- 키워드 인사이트 섹션 (네이버 데이터랩) -->
+      <section class="block block-insight" id="insightSection">
+        <div class="block-head">
+          <span class="block-num insight-num">AI</span>
+          <span class="block-tag">KEYWORD INSIGHT</span>
+          <span class="block-title">검색 트렌드 · 네이버 데이터랩</span>
+          <span class="block-desc">소비자 관심 변화를 2~4주 먼저 감지하는 선행 신호</span>
+        </div>
+
+        <div class="insight-search-row">
+          <div class="insight-input-wrap">
+            <svg class="insight-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <input id="kwSearchInput" class="insight-input" type="text"
+              placeholder="키워드 입력 (최대 5개, 쉼표로 구분) — 예: 선크림, 선스틱, 자외선차단제">
+          </div>
+          <button id="kwSearchBtn" class="insight-btn">검색</button>
+        </div>
+
+        <div class="insight-presets">
+          <span class="preset-label">빠른 검색</span>
+          <button class="kw-preset-btn" data-preset="0">☀️ 선케어</button>
+          <button class="kw-preset-btn" data-preset="1">💧 스킨케어</button>
+          <button class="kw-preset-btn" data-preset="2">💄 메이크업</button>
+          <button class="kw-preset-btn" data-preset="3">🧴 클렌징</button>
+          <span class="preset-sep">|</span>
+          <button class="kw-period-btn active" data-months="12">12개월</button>
+          <button class="kw-period-btn" data-months="6">6개월</button>
+          <button class="kw-period-btn" data-months="3">3개월</button>
+        </div>
+
+        <div id="kwStatus" class="kw-status idle">키워드를 입력하면 네이버 검색 상대 트렌드(0~100 지수)를 확인할 수 있습니다</div>
+
+        <div id="kwResultArea" style="display:none">
+          <div id="kwChartWrap" class="kw-chart-wrap"></div>
+          <div id="kwLegendWrap" class="kw-legend-wrap"></div>
+          <div id="kwTableWrap" class="kw-table-wrap"></div>
+          <p class="kw-note">※ 네이버 검색 상대 트렌드 지수(0~100). 절대 검색 수가 아닌 기간 내 최대값 대비 비율입니다.</p>
+        </div>
+      </section>
+
       <section class="block block-leading">
         <div class="block-head">
           <span class="block-num">02</span>
@@ -100,5 +143,6 @@
   <script src="data.js"></script>
   <script src="metrics.js"></script>
   <script src="app.js"></script>
+  <script src="keyword.js"></script>
 </body>
 </html>

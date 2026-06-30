@@ -11,6 +11,8 @@
 
   --composite-accent: #A8526B;
   --composite-tint: #FAF1F3;
+  --insight-accent: #4A5BA8;
+  --insight-tint: #F0F1FA;
   --leading-accent: #2C7A8C;
   --leading-tint: #EFF6F7;
   --lagging-accent: #A6791F;
@@ -158,6 +160,73 @@ body {
 .legend-pct { font-size: 12.5px; font-weight: 700; color: var(--ink); }
 
 .page-footer { font-size: 11.5px; color: var(--muted); text-align: center; padding-top: 16px; border-top: 1px solid var(--border); }
+
+/* ---- 키워드 인사이트 섹션 ---- */
+.block-insight { background: var(--insight-tint); border-color: #D8DBEF; }
+.block-insight .block-tag { color: var(--insight-accent); background: rgba(74,91,168,0.12); }
+.insight-num { background: var(--insight-accent) !important; font-size: 9px !important; letter-spacing: 0.04em; }
+
+.insight-search-row { display: flex; gap: 10px; margin-bottom: 12px; }
+.insight-input-wrap {
+  flex: 1; position: relative; display: flex; align-items: center;
+  background: #fff; border: 1.5px solid #D8DBEF; border-radius: 11px;
+  transition: border-color .15s;
+}
+.insight-input-wrap:focus-within { border-color: var(--insight-accent); }
+.insight-search-icon { position: absolute; left: 13px; color: var(--muted); flex-shrink: 0; }
+.insight-input {
+  width: 100%; border: none; outline: none; background: transparent;
+  padding: 11px 14px 11px 36px; font-family: inherit; font-size: 13.5px; color: var(--ink);
+  border-radius: 11px;
+}
+.insight-input::placeholder { color: #B7AFA8; }
+.insight-btn {
+  padding: 0 22px; border: none; border-radius: 11px; cursor: pointer;
+  background: var(--insight-accent); color: #fff;
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  transition: background .15s, opacity .15s;
+}
+.insight-btn:hover { background: #3a4a96; }
+.insight-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.insight-presets { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 14px; }
+.preset-label { font-size: 11px; color: var(--muted); font-weight: 600; }
+.preset-sep { color: var(--border); }
+.kw-preset-btn, .kw-period-btn {
+  border: 1.5px solid #D8DBEF; border-radius: 8px; padding: 4px 11px;
+  background: #fff; cursor: pointer; font-family: inherit; font-size: 12px;
+  color: var(--sub); transition: all .12s;
+}
+.kw-preset-btn:hover { border-color: var(--insight-accent); color: var(--insight-accent); }
+.kw-period-btn.active { background: var(--insight-accent); color: #fff; border-color: var(--insight-accent); }
+.kw-period-btn:hover:not(.active) { border-color: var(--insight-accent); color: var(--insight-accent); }
+
+.kw-status {
+  font-size: 12.5px; padding: 10px 14px; border-radius: 9px; margin-bottom: 14px;
+  line-height: 1.5;
+}
+.kw-status.idle { color: var(--muted); background: rgba(255,255,255,0.6); }
+.kw-status.loading { color: var(--insight-accent); background: rgba(74,91,168,0.08); }
+.kw-status.ok { color: var(--pos); background: rgba(63,143,107,0.08); font-weight: 600; }
+.kw-status.error { color: var(--neg); background: rgba(194,96,63,0.09); }
+
+.kw-chart-wrap {
+  background: #fff; border-radius: 12px; padding: 16px 12px 10px;
+  border: 1px solid #E4E6F0; margin-bottom: 12px;
+}
+
+.kw-legend-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.kw-legend-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: #fff; border: 1px solid #E4E6F0; border-radius: 9px;
+  padding: 6px 12px; font-size: 12.5px;
+}
+.kw-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
+.kw-name { font-weight: 600; color: var(--ink); }
+.kw-val { font-weight: 700; color: var(--sub); margin-left: 4px; }
+
+.kw-table-wrap { margin-bottom: 10px; }
+.kw-note { font-size: 11px; color: var(--faint); line-height: 1.5; margin: 0; }
 
 /* Modal */
 .modal-backdrop {
